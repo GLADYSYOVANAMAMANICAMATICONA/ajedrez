@@ -1,0 +1,25 @@
+td{
+	width: 40px;
+    height: 40px;
+}
+
+body{
+	text-align: center;
+}
+
+button{
+	color: blue;
+}
+button:hover{
+	background-color: black;
+	color: white;
+}
+
+.negro{
+	/*background-image: ("img/caballo.png")*/
+	background-color: black;
+    color:white;
+}
+
+
+
