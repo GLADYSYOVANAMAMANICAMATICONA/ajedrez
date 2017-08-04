@@ -1,6 +1,6 @@
 var generar = document.getElementById('ejecutar');
 var tablero = document.getElementById('tablero');
-
+var sigSolucion = document.getElementById("sigsolucion");
 function printMatrix (M){
     console.log ("___________________");
     for (var i = 0; i < M.length; i++)
@@ -143,10 +143,60 @@ generar.onclick = function () {
     tablero.appendChild(tabla);
 }
 
-function siguiente(){
-
+/*Boton de siguiente*/
+var btnSiguiente = document.getElementById('siguiente');
+unoUno = 0;
+btnSiguiente.onclick = function (){
+  var celdasTablero = document.getElementsByTagName('td');
+  for(var i = 0; i < celdasTablero.length; i++){
+    var n = celdasTablero[i].id;
+      }
+  unoUno ++;
+  var array = 0;
+  var movientoUno = 0;
+  for(var i in array){
+    for (var j in array) {
+      if(movimientoUno[i][j] == unoUno){
+        movientoUno = array[i][j]
+      }
+  }
+}
+console.log(unoUno +"-"+ movientoUno);
 }
 
-function sigsolucion(){
-
+/*Siguiente Solucion*/
+sigSolucion.onclick = function () {
+    tableroDeSigSolucion.innerHTML = '';
+    var n = parseInt(document.getElementById('lados').value);
+    
+    for( var i = 0; i < 1000; i++) {
+        var M = initMatrix (n);
+        var helper = gen_heuristic (n);
+        if (gen_solution (M, helper, n) ) {
+            printMatrix (M);
+            break;
+        }
+    }
+    
+    var tabla = document.createElement('table');
+    tabla.border = "1";
+    for (var i = 0; i < n; i++) {
+        var fila = document.createElement('tr');
+        for (var j = 0; j < n; j++) {
+            var celda = document.createElement('td');
+            if (i % 2 == 0 && j % 2 != 0 || i % 2 != 0 && j % 2 == 0) {
+                celda.setAttribute('class', 'negro');
+            }
+            var p = document.createElement('p');
+            p.innerHTML = M[i][j];
+            celda.appendChild(p);
+            
+            fila.appendChild(celda);
+        }
+        tabla.appendChild(fila);
+    }
+    tableroDeSigSolucion.appendChild(tabla);
 }
+
+
+/*ncfdkjndxnjvfm gvfhgfhgj*/
